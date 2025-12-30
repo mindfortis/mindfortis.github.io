@@ -7,8 +7,8 @@ import pic2 from '../assets/pic2.jpeg';
 ---
 
 <Layout title="Calming Your Mind - Anxiety, Stress & Mindfulness Guidebook" description="Unlock tranquility with 'Calming Your Mind' - your essential guide to reduce anxiety, manage stress, and cultivate mindfulness. Download your free journal today!">
-	<main class="min-h-screen flex flex-col items-center justify-center py-16 px-4 md:px-8">
-		<section class="hero text-center max-w-4xl mx-auto">
+	<main class="min-h-screen flex flex-col items-center py-16 px-4 md:px-8">
+		<section class="hero text-center max-w-4xl mx-auto mb-20">
 			<h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-4 animate-fade-in-up">
 				Your Journey to <span class="text-soft-green">Inner Peace</span> Starts Here.
 			</h1>
@@ -16,7 +16,7 @@ import pic2 from '../assets/pic2.jpeg';
 				Discover the ultimate guide to reduce anxiety, manage stress, and cultivate lasting mindfulness.
 			</p>
 			<div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12 animate-fade-in-up delay-400">
-				<a href="#download" class="bg-soft-green text-primary-dark hover:bg-opacity-90 px-8 py-4 rounded-full text-lg font-semibold shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1" aria-label="Download Free Journal">
+				<a href="/calming-your-mind-journal.pdf" class="bg-soft-green text-primary-dark hover:bg-opacity-90 px-8 py-4 rounded-full text-lg font-semibold shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1" aria-label="Download Free Journal">
 					Download Free Journal
 				</a>
 				<a href="#preview" class="text-soft-green border-2 border-soft-green hover:bg-soft-green hover:text-primary-dark px-8 py-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:-translate-y-1" aria-label="Preview Pages">
@@ -28,7 +28,7 @@ import pic2 from '../assets/pic2.jpeg';
 			</div>
 		</section>
 
-		<section class="showcase py-16 px-4 md:px-8 w-full max-w-6xl mx-auto">
+		<section id="preview" class="showcase py-16 px-4 md:px-8 w-full max-w-6xl mx-auto">
 			<h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">Glimpse Inside the Guidebook</h2>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
 				<div class="flex justify-center animate-fade-in delay-200">
@@ -39,7 +39,7 @@ import pic2 from '../assets/pic2.jpeg';
 						height={400}
 						class="rounded-lg shadow-xl object-contain max-h-[400px]"
 						widths={[300, 600, 900]}
-						formats={['webp', 'jpeg']}
+						format={['webp', 'jpeg']}
 					/>
 				</div>
 				<div class="flex justify-center animate-fade-in delay-400">
@@ -50,7 +50,7 @@ import pic2 from '../assets/pic2.jpeg';
 						height={400}
 						class="rounded-lg shadow-xl object-contain max-h-[400px]"
 						widths={[300, 600, 900]}
-						formats={['webp', 'jpeg']}
+						format={['webp', 'jpeg']}
 					/>
 				</div>
 			</div>
@@ -95,7 +95,64 @@ import pic2 from '../assets/pic2.jpeg';
 				</div>
 			</div>
 		</section>
+
+		<section class="testimonials py-16 px-4 md:px-8 w-full max-w-4xl mx-auto">
+			<h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">What Our Readers Say</h2>
+			<div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+				<p class="text-xl italic text-gray-300 mb-4">"This guidebook transformed my daily routine. I feel calmer, more focused, and truly at peace. A must-read for anyone struggling with anxiety!"</p>
+				<p class="text-soft-green font-semibold">- Satisfied Reader</p>
+			</div>
+			<!-- More testimonials can be added here -->
+		</section>
+
+		<section class="about-author py-16 px-4 md:px-8 w-full max-w-4xl mx-auto">
+			<h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">About the Author</h2>
+			<div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+				<p class="text-lg text-gray-300 leading-relaxed">
+					Hi, I'm Reeda, and I created "Calming Your Mind" because I believe everyone deserves to find peace amidst life's chaos.
+					Having navigated my own journey through stress and anxiety, I understand the challenges you face. This guidebook is a culmination of
+					proven techniques and heartfelt insights designed to support you in building a calmer, more mindful life.
+				</p>
+			</div>
+		</section>
+
+		<section id="download" class="faq py-16 px-4 md:px-8 w-full max-w-4xl mx-auto">
+			<h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">Frequently Asked Questions</h2>
+			<div class="space-y-4">
+				<details class="bg-gray-800 p-6 rounded-lg group">
+					<summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-white">
+						How do I receive the guidebook?
+						<span class="text-soft-green transform group-open:rotate-45 transition-transform duration-300">+</span>
+					</summary>
+					<p class="text-gray-300 mt-4">
+						The guidebook is a digital PDF that you can download immediately after signing up. You'll receive a link to your email, and you can save it to any device.
+					</p>
+				</details>
+				<details class="bg-gray-800 p-6 rounded-lg group">
+					<summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-white">
+						Is this guidebook suitable for beginners?
+						<span class="text-soft-green transform group-open:rotate-45 transition-transform duration-300">+</span>
+					</summary>
+					<p class="text-gray-300 mt-4">
+						Absolutely! "Calming Your Mind" is designed for all levels, from complete beginners to those with some mindfulness experience. The exercises are simple, practical, and easy to follow.
+					</p>
+				</details>
+				<details class="bg-gray-800 p-6 rounded-lg group">
+					<summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-white">
+						Can I print the journal?
+						<span class="text-soft-green transform group-open:rotate-45 transition-transform duration-300">+</span>
+					</summary>
+					<p class="text-gray-300 mt-4">
+						Yes! The guidebook and journal are formatted to be easily printed on standard paper sizes, so you can write in it by hand if you prefer.
+					</p>
+				</details>
+			</div>
+		</section>
 	</main>
+
+	<footer class="text-center py-8 px-4 border-t border-gray-700">
+		<p class="text-gray-400">&copy; {new Date().getFullYear()} MindFortis. Dev by FarrosFR.</p>
+	</footer>
 </Layout>
 
 <style>
