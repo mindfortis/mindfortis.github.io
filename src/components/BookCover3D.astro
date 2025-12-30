@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import bookCover from '../assets/logo.jpeg';
+
+interface Props {
+  alt: string;
+  width: number;
+  height: number;
+}
+
+const { alt, width, height } = Astro.props;
+---
+<div class="relative w-full h-full" style="perspective: 1000px;">
+  <div class="relative w-full h-full transform transition-transform duration-500 ease-in-out hover:scale-105"
+       style="transform: rotateY(15deg) rotateX(10deg); transform-style: preserve-3d;">
+    <Image
+      src={bookCover}
+      alt={alt}
+      width={width}
+      height={height}
+      class="w-full h-full object-contain shadow-2xl"
+      widths={[300, 600, 900]}
+      formats={['webp', 'jpeg']}
+    />
+  </div>
+</div>

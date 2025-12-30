@@ -1,11 +1,137 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BookCover3D from '../components/BookCover3D.astro';
+import { Image } from 'astro:assets';
+import pic1 from '../assets/pic1.jpeg';
+import pic2 from '../assets/pic2.jpeg';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Calming Your Mind - Anxiety, Stress & Mindfulness Guidebook" description="Unlock tranquility with 'Calming Your Mind' - your essential guide to reduce anxiety, manage stress, and cultivate mindfulness. Download your free journal today!">
+	<main class="min-h-screen flex flex-col items-center justify-center py-16 px-4 md:px-8">
+		<section class="hero text-center max-w-4xl mx-auto">
+			<h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-4 animate-fade-in-up">
+				Your Journey to <span class="text-soft-green">Inner Peace</span> Starts Here.
+			</h1>
+			<p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up delay-200">
+				Discover the ultimate guide to reduce anxiety, manage stress, and cultivate lasting mindfulness.
+			</p>
+			<div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12 animate-fade-in-up delay-400">
+				<a href="#download" class="bg-soft-green text-primary-dark hover:bg-opacity-90 px-8 py-4 rounded-full text-lg font-semibold shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1" aria-label="Download Free Journal">
+					Download Free Journal
+				</a>
+				<a href="#preview" class="text-soft-green border-2 border-soft-green hover:bg-soft-green hover:text-primary-dark px-8 py-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:-translate-y-1" aria-label="Preview Pages">
+					Preview Pages
+				</a>
+			</div>
+			<div class="w-64 h-80 md:w-80 md:h-96 mx-auto animate-fade-in-up delay-600">
+				<BookCover3D alt="Calming Your Mind Guidebook Cover" width={300} height={400} />
+			</div>
+		</section>
+
+		<section class="showcase py-16 px-4 md:px-8 w-full max-w-6xl mx-auto">
+			<h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">Glimpse Inside the Guidebook</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
+				<div class="flex justify-center animate-fade-in delay-200">
+					<Image
+						src={pic1}
+						alt="Mockup of the Calming Your Mind Guidebook on a podium"
+						width={600}
+						height={400}
+						class="rounded-lg shadow-xl object-contain max-h-[400px]"
+						widths={[300, 600, 900]}
+						formats={['webp', 'jpeg']}
+					/>
+				</div>
+				<div class="flex justify-center animate-fade-in delay-400">
+					<Image
+						src={pic2}
+						alt="Layout of the Calming Your Mind Guidebook with interior pages"
+						width={600}
+						height={400}
+						class="rounded-lg shadow-xl object-contain max-h-[400px]"
+						widths={[300, 600, 900]}
+						formats={['webp', 'jpeg']}
+					/>
+				</div>
+			</div>
+		</section>
+
+		<section class="benefits py-16 px-4 md:px-8 w-full max-w-6xl mx-auto">
+			<h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">Benefits You'll Experience</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+				<div class="p-6 bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+					<h3 class="text-2xl font-semibold text-soft-green mb-3">Reduce Anxiety</h3>
+					<p class="text-gray-300">Learn practical techniques to calm your mind and ease anxious thoughts.</p>
+				</div>
+				<div class="p-6 bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 delay-100">
+					<h3 class="text-2xl font-semibold text-pastel-purple mb-3">Build Daily Calm</h3>
+					<p class="text-gray-300">Integrate simple routines for a more peaceful and centered day.</p>
+				</div>
+				<div class="p-6 bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 delay-200">
+					<h3 class="text-2xl font-semibold text-soft-green mb-3">Mindfulness Routines</h3>
+					<p class="text-gray-300">Cultivate presence and awareness with guided mindfulness practices.</p>
+				</div>
+				<div class="p-6 bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 delay-300">
+					<h3 class="text-2xl font-semibold text-pastel-purple mb-3">Printable & Practical</h3>
+					<p class="text-gray-300">Enjoy an easy-to-use guidebook and journal you can print and use daily.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="journal-preview py-16 px-4 md:px-8 w-full max-w-6xl mx-auto">
+			<h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">What You'll Find Inside</h2>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div class="p-8 bg-gray-800 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+					<h3 class="text-3xl font-semibold text-pastel-purple mb-4">Daily Reflection</h3>
+					<p class="text-gray-300">Prompts and exercises to help you reflect on your thoughts and feelings each day.</p>
+				</div>
+				<div class="p-8 bg-gray-800 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 delay-100">
+					<h3 class="text-3xl font-semibold text-soft-green mb-4">Mindfulness Practice</h3>
+					<p class="text-gray-300">Guided techniques to bring awareness to the present moment and cultivate calm.</p>
+				</div>
+				<div class="p-8 bg-gray-800 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 delay-200">
+					<h3 class="text-3xl font-semibold text-pastel-purple mb-4">Calming Exercises</h3>
+					<p class="text-gray-300">Effective strategies and tools to quickly reduce stress and anxiety.</p>
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>
+
+<style>
+	@keyframes fade-in-up {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	.animate-fade-in-up {
+		animation: fade-in-up 0.6s ease-out forwards;
+		opacity: 0; /* Start invisible */
+	}
+	.delay-200 {
+		animation-delay: 0.2s;
+	}
+	.delay-400 {
+		animation-delay: 0.4s;
+	}
+	.delay-600 {
+		animation-delay: 0.6s;
+	}
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	.animate-fade-in {
+		animation: fade-in 1s ease-out forwards;
+		opacity: 0; /* Start invisible */
+	}
+</style>
