@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
 import { Image } from 'astro:assets';
 import pic1 from '../assets/pic1.png';
 import pic2 from '../assets/pic2.png';
@@ -16,14 +15,14 @@ import pic2 from '../assets/pic2.png';
 				Discover the ultimate guide to reduce anxiety, manage stress, and cultivate lasting mindfulness.
 			</p>
 			<div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12 animate-fade-in-up delay-400">
-				<a href="/calming-your-mind-journal.pdf" class="bg-soft-green text-primary-dark hover:bg-opacity-90 px-8 py-4 rounded-full text-lg font-semibold shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1" aria-label="Download Free Journal">
+				<button id="download-button" class="bg-soft-green text-primary-dark hover:bg-opacity-90 px-8 py-4 rounded-full text-lg font-semibold shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1" aria-label="Download Free Journal">
 					Download Free Journal
-				</a>
+				</button>
 				<a href="#preview" class="text-soft-green border-2 border-soft-green hover:bg-soft-green hover:text-primary-dark px-8 py-4 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:-translate-y-1" aria-label="Preview Pages">
 					Preview Pages
 				</a>
 			</div>
-
+			<p id="locker-message" class="text-gray-400 mt-4 hidden">After completing the offer, you will be able to download the file.</p>
 		</section>
 
 		<section id="preview" class="showcase py-16 px-4 md:px-8 w-full max-w-6xl mx-auto">
@@ -153,6 +152,114 @@ import pic2 from '../assets/pic2.png';
 	</footer>
 </Layout>
 
+<script is:inline>
+	var locker_url = "https://applocked.space/cl/v/n6615v";
+	var iframecontents;
+	var old_display;
+	var isLockerCalled = false;
+
+	function og_load(options) {
+		if (options) {
+			var query_vars = Object.keys(options).map(function (key) {
+				return encodeURIComponent(key) + '=' + encodeURIComponent(options[key]);
+			}).join('&');
+			locker_url += '?' + query_vars;
+		}
+		// preload
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', locker_url, true);
+		xhr.onreadystatechange = function() {
+			if (this.readyState !== 4) {
+				return;
+			}
+			if (this.status!==200) {
+				iframecontents = false;
+				return;
+			}
+			iframecontents = this.responseText;
+		};
+		xhr.send();
+		ogEditBody();
+	}
+
+	function ogEditBody() {
+		var body = document.getElementsByTagName('body')[0];
+		if(document.getElementsByTagName('body')[0] === undefined) {
+			setTimeout(ogEditBody, 100);
+			return;
+		}
+		var old_overflow = body.style.overflow;
+		old_display = body.style.display;
+		body.style.display = 'none';
+		ogMakeLocker();
+	}
+
+	function ogMakeLocker() {
+		var body = document.getElementsByTagName('body')[0];
+		if(iframecontents === undefined) {
+			setTimeout(ogMakeLocker, 100);
+			return;
+		}
+		body.style.display = old_display;
+		if(iframecontents !== false) {
+			var body = document.getElementsByTagName('body')[0];
+			var iframe = document.createElement('iframe');
+			iframe.name = 'iframe';
+			iframe.scrolling = 'yes';
+			iframe.frameborder = '0';
+			iframe.style.border = 'none';
+			iframe.style.width = '100%';
+			iframe.style.height = '100%';
+			iframe.style.position = 'fixed';
+			iframe.style.top = 0;
+			iframe.style.left = 0;
+			iframe.style.zIndex = 16777271;
+			iframe.id = 'test_iframe';
+			body.appendChild(iframe);
+			iframe = document.getElementById("test_iframe");
+			iframe.contentDocument.write(iframecontents);
+		}
+	}
+
+	function og_getScriptURL() {
+		var scripts = document.getElementsByTagName('script');
+		var index = scripts.length - 1;
+		var myScript = scripts[index];
+		var src = myScript.src;
+		return src.split('?')[0];
+	}
+
+	function call_locker(options) {
+		og_load(options);
+	}
+
+	function og_call(options) {
+		og_load(options);
+	}
+
+	document.getElementById('download-button').addEventListener('click', function() {
+		if (!isLockerCalled) {
+			call_locker();
+			isLockerCalled = true;
+			// Show a message to the user
+			var message = document.getElementById('locker-message');
+			if (message) {
+				message.classList.remove('hidden');
+			}
+			// Re-purpose the button to be the actual download link
+			var downloadButton = document.getElementById('download-button');
+			downloadButton.innerText = 'Click Here to Download';
+			
+			// Prevent the locker from being called again and make it a download link
+			downloadButton.addEventListener('click', function(e) {
+				e.preventDefault(); // prevent the locker from opening again
+				window.location.href = '/calming-your-mind-journal.pdf';
+			}, { once: true }); // Only allow one click to download
+		}
+	});
+
+	var ogblock = false;
+</script>
 <style>
 	@keyframes fade-in-up {
 		from {
