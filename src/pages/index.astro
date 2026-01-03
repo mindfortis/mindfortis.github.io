@@ -95,11 +95,30 @@ import pic2 from '../assets/pic2.png';
 
 		<section class="testimonials py-16 px-4 md:px-8 w-full max-w-4xl mx-auto">
 			<h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-12">What Our Readers Say</h2>
-			<div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
-				<p class="text-xl italic text-gray-300 mb-4">"This guidebook transformed my daily routine. I feel calmer, more focused, and truly at peace. A must-read for anyone struggling with anxiety!"</p>
-				<p class="text-soft-green font-semibold">- Satisfied Reader</p>
+			<div class="testimonial-slider-container bg-gray-800 p-8 rounded-lg shadow-lg text-center relative">
+				<div class="testimonial-slide">
+					<p class="text-xl italic text-gray-300 mb-4">"This guidebook transformed my daily routine. I feel calmer, more focused, and truly at peace. A must-read for anyone struggling with anxiety!"</p>
+					<p class="text-soft-green font-semibold">- Satisfied Reader</p>
+				</div>
+				<div class="testimonial-slide" style="display: none;">
+					<p class="text-xl italic text-gray-300 mb-4">"I've struggled with anxiety for years, and this guide has been a game-changer. The techniques are practical and easy to implement. I feel more in control of my thoughts and emotions."</p>
+					<p class="text-soft-green font-semibold">- Happy Customer</p>
+				</div>
+				<div class="testimonial-slide" style="display: none;">
+					<p class="text-xl italic text-gray-300 mb-4">"The daily reflection prompts have helped me become more self-aware. I'm learning to identify my triggers and manage my stress in a healthier way. Highly recommend!"</p>
+					<p class="text-soft-green font-semibold">- Grateful User</p>
+				</div>
+				<div class="testimonial-slide" style="display: none;">
+					<p class="text-xl italic text-gray-300 mb-4">"As a busy professional, I was skeptical about finding time for mindfulness. This guidebook showed me how to integrate simple practices into my daily routine. It's made a huge difference in my focus and productivity."</p>
+					<p class="text-soft-green font-semibold">- Focused Professional</p>
+				</div>
+				<div class="testimonial-slide" style="display: none;">
+					<p class="text-xl italic text-gray-300 mb-4">"The printable journal is a fantastic tool. Writing down my thoughts and feelings has been incredibly therapeutic. It's like having a personal therapist in my pocket."</p>
+					<p class="text-soft-green font-semibold">- Inspired Journaler</p>
+				</div>
+				<button class="testimonial-prev absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full">&#10094;</button>
+				<button class="testimonial-next absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full">&#10095;</button>
 			</div>
-			<!-- More testimonials can be added here -->
 		</section>
 
 		<section class="about-author py-16 px-4 md:px-8 w-full max-w-4xl mx-auto">
@@ -258,6 +277,36 @@ import pic2 from '../assets/pic2.png';
 		}
 	});
 
+	// Testimonial Slider
+	let slideIndex = 0;
+	const slides = document.querySelectorAll('.testimonial-slide');
+	const prevButton = document.querySelector('.testimonial-prev');
+	const nextButton = document.querySelector('.testimonial-next');
+
+	function showSlide(index) {
+		slides.forEach((slide, i) => {
+			slide.style.display = i === index ? 'block' : 'none';
+		});
+	}
+
+	function nextSlide() {
+		slideIndex = (slideIndex + 1) % slides.length;
+		showSlide(slideIndex);
+	}
+
+	function prevSlide() {
+		slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+		showSlide(slideIndex);
+	}
+
+	if (prevButton && nextButton) {
+		prevButton.addEventListener('click', prevSlide);
+		nextButton.addEventListener('click', nextSlide);
+	}
+
+	showSlide(slideIndex);
+
+
 	var ogblock = false;
 </script>
 <style>
@@ -295,5 +344,9 @@ import pic2 from '../assets/pic2.png';
 	.animate-fade-in {
 		animation: fade-in 1s ease-out forwards;
 		opacity: 0; /* Start invisible */
+	}
+
+	.testimonial-slide {
+		animation: fade-in 0.5s ease-out;
 	}
 </style>
